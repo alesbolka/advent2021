@@ -22,18 +22,29 @@ vector<int> getSeed0101()
   return mockData;
 };
 
-uint day01countDepthIncrements(vector<int> sonarReport)
+uint day01countDepthIncrements(vector<int> sonarReport, int windowSize = 1)
 {
   uint counter = 0;
   int prev = 0;
 
-  if (sonarReport.size() < 1) {
+  if (sonarReport.size() < windowSize)
+  {
     throw invalid_argument("No elements in to count depth with");
   }
 
-  for (auto ii = next(sonarReport.begin()); ii != sonarReport.end(); ii++)
+  for (auto iterator = sonarReport.begin() + windowSize; iterator != sonarReport.end(); iterator++)
   {
-    if (*(ii-1) < *ii) {
+    int sum1 = 0;
+    int sum2 = 0;
+
+    for (int jj = 0; jj < windowSize; jj++)
+    {
+      sum1 += *(iterator - jj - 1);
+      sum2 += *(iterator - jj);
+    }
+
+    if (sum1 < sum2)
+    {
       counter++;
     }
   }
@@ -44,8 +55,23 @@ uint day01countDepthIncrements(vector<int> sonarReport)
 int executeDay01Task(int task)
 {
   vector<int> sweepReport = readArrayInt("./src/day01/day1.input");
-  uint increments = day01countDepthIncrements(sweepReport);
-  cout << "Increments in batch: " << increments << endl;
+  uint increments, window;
+
+  switch (task)
+  {
+  case 1:
+    window = 1;
+    break;
+  case 2:
+    window = 3;
+    break;
+  default:
+    cout << "Day 1 has no task " << task << endl;
+    return 1;
+  }
+
+  increments = day01countDepthIncrements(sweepReport, window);
+  cout << "Increments in report with a window of width " << window << ": " << increments << endl;
 
   return 0;
 }

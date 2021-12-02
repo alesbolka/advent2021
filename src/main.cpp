@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
   try
   {
-    day = stoi(argv[2]);
+    task = stoi(argv[2]);
   }
   catch (exception &e)
   {
