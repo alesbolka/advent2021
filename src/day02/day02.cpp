@@ -19,6 +19,10 @@ int executeDay02Task(int task)
     // std::cout << line << std::endl;
   };
 
+  if (task == 2) {
+    sub.setMode(day02::InstructionMode::Day02Task2);
+  }
+
   readByLine("./src/day02/day2.input", reader);
 
   std::cout << "Sub course plotted with: " << sub.getResult() << std::endl;

@@ -35,19 +35,46 @@ void Submarine::command(string instruction)
   iss >> command;
   iss >> value;
 
-  switch (Submarine::identifyCommand(command))
+  switch (this->mode)
   {
-  case SubCommand::up:
-    this->depth -= atoi(value.c_str());
-    break;
-  case SubCommand::down:
-    this->depth += atoi(value.c_str());
-    break;
-  case SubCommand::forward:
-    this->posX += atoi(value.c_str());
+  case InstructionMode::Day02Task1:
+    this->commandD2T1(Submarine::identifyCommand(command), atoi(value.c_str()));
     break;
   default:
-    throw invalid_argument("Invalid sub command: " + instruction);
+    this->commandD2T2(Submarine::identifyCommand(command), atoi(value.c_str()));
+    break;
+  }
+}
+
+void Submarine::commandD2T1(SubCommand command, int val)
+{
+  switch (command)
+  {
+  case SubCommand::up:
+    this->depth -= val;
+    break;
+  case SubCommand::down:
+    this->depth += val;
+    break;
+  case SubCommand::forward:
+    this->posX += val;
+    break;
+  }
+}
+
+void Submarine::commandD2T2(SubCommand command, int val)
+{
+  switch (command)
+  {
+  case SubCommand::up:
+    this->aim -= val;
+    break;
+  case SubCommand::down:
+    this->aim += val;
+    break;
+  case SubCommand::forward:
+    this->posX += val;
+    this->depth += this->aim * val;
     break;
   }
 }
