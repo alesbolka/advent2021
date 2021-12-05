@@ -6,11 +6,6 @@ using namespace day02;
 
 int executeDay02Task(int task)
 {
-  struct position {
-    int depth;
-    int y;
-  };
-
   Submarine sub;
 
   auto reader = [&sub](std::string line) mutable
