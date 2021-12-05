@@ -1,11 +1,10 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <iostream>
-// #include <string>
+#include <string>
 
-template<typename lineReader>
-void readByLine (std::string filepath, lineReader reader)
+template <typename lineReader>
+void readByLine(std::string filepath, lineReader reader)
 {
   std::string line;
   std::ifstream fileStream(filepath);
@@ -31,6 +30,5 @@ std::vector<int> readArrayInt(std::string filepath)
   {
     result.push_back(std::atoi(line.c_str()));
   }
-  std::cout << "done read: " << result.size() << std::endl;
   return result;
 }

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <exception>
 #include "./day01/day01.cpp"
+#include "./day02/day02.cpp"
+#include "./day02/submarine.cpp"
+#include "./shared/fileReader.cpp"
 
 using namespace std;
 
@@ -41,6 +44,8 @@ int main(int argc, char **argv)
   {
   case 1:
     return executeDay01Task(task);
+  case 2:
+    return executeDay02Task(task);
   default:
     cout << "Invalid task " << task << " specified for day " << day << endl;
     return 1;

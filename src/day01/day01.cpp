@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "../shared/fileReader.cpp"
+#include "../shared/fileReader.h"
 
 using namespace std;
 
