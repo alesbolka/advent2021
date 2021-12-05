@@ -3,6 +3,7 @@
 #include "./day01/day01.cpp"
 #include "./day02/day02.cpp"
 #include "./day03/day03.cpp"
+#include "./day04/day04.cpp"
 #include "./shared/fileReader.cpp"
 
 using namespace std;
@@ -49,7 +50,7 @@ int main(int argc, char **argv)
   case 3:
     return executeDay03Task(task);
   case 4:
-    return 0;
+    return executeDay04Task(task);
   default:
     cout << "Invalid task " << task << " specified for day " << day << endl;
     return 1;
