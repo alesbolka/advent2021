@@ -11,7 +11,6 @@ int executeDay02Task(int task)
   auto reader = [&sub](std::string line) mutable
   {
     sub.command(line);
-    // std::cout << line << std::endl;
   };
 
   if (task == 2) {
