@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../shared/fileReader.h"
 #include "./day02.h"
+#include "./submarine.cpp"
 
 using namespace day02;
 
