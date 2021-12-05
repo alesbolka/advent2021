@@ -2,7 +2,7 @@
 #include "../shared/fileReader.h"
 #include "./day02.h"
 
-using day02::Submarine;
+using namespace day02;
 
 int executeDay02Task(int task)
 {
@@ -23,7 +23,7 @@ int executeDay02Task(int task)
     sub.setMode(day02::InstructionMode::Day02Task2);
   }
 
-  readByLine("./src/day02/day2.input", reader);
+  readByLine("./src/day02/day02.input", reader);
 
   std::cout << "Sub course plotted with: " << sub.getResult() << std::endl;
   return 0;

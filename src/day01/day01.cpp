@@ -54,7 +54,7 @@ uint day01countDepthIncrements(vector<int> sonarReport, int windowSize = 1)
 
 int executeDay01Task(int task)
 {
-  vector<int> sweepReport = readArrayInt("./src/day01/day1.input");
+  vector<int> sweepReport = readArrayInt("./src/day01/day01.input");
   uint increments, window;
 
   switch (task)
