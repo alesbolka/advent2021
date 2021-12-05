@@ -32,7 +32,7 @@ uint day01countDepthIncrements(vector<int> sonarReport, int windowSize = 1)
     throw invalid_argument("No elements in to count depth with");
   }
 
-  for (auto iterator = sonarReport.begin() + windowSize; iterator != sonarReport.end(); iterator++)
+  for (auto iterator = sonarReport.begin() + windowSize; iterator != sonarReport.end(); ++iterator)
   {
     int sum1 = 0;
     int sum2 = 0;
