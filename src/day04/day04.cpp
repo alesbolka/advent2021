@@ -15,7 +15,11 @@ int executeDay04Task(int task)
   if (task == 1) {
     game.parseInput(data);
     std::cout << "Winner board id: " << game.play() << std::endl;
+    return 0;
   }
+
+  game.parseInput(data);
+  std::cout << "Last winner id: " << game.play(true) << std::endl;
 
   return 0;
 }

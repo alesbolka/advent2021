@@ -61,7 +61,7 @@ void BingoGame::parseFirstLine(std::string line)
   }
 }
 
-int BingoGame::play()
+int BingoGame::play(bool findLast)
 {
   if (this->boards.size() < 1)
   {
@@ -74,6 +74,8 @@ int BingoGame::play()
   }
 
   bool start = true;
+  int winnerCount = 0;
+
   for (int num : this->sequence)
   {
     for (int ii = 0; ii < this->boards.size(); ++ii)
@@ -83,10 +85,19 @@ int BingoGame::play()
         this->boards[ii].reset();
       }
 
+      if (this->boards[ii].done())
+      {
+        continue;
+      }
+
       int res = this->boards[ii].draw(num);
       if (res > 0) {
-        // std::cout()
-        return res * num;
+        winnerCount++;
+
+        if (!findLast || this->boards.size() == winnerCount)
+        {
+          return res * num;
+        }
       }
     }
 

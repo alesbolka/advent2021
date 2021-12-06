@@ -54,13 +54,9 @@ int BingoBoard::draw(int number)
   this->gameNumbers[number] = false;
   this->gameSum -= number;
 
-  if (++this->colHits[coords[0]] == this->cols)
+  if (++this->colHits[coords[0]] == this->cols || ++this->rowHits[coords[1]] == this->rows)
   {
-    return this->gameSum;
-  }
-
-  if (++this->rowHits[coords[1]] == this->rows)
-  {
+    this->hasWon = true;
     return this->gameSum;
   }
 
@@ -69,6 +65,7 @@ int BingoBoard::draw(int number)
 
 void BingoBoard::reset()
 {
+  this->hasWon = false;
   this->rowHits = vector<int>(this->rows);
   this->colHits = vector<int>(this->cols);
   this->gameNumbers = std::map<int, bool>{};
