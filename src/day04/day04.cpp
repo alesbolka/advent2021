@@ -11,9 +11,10 @@ int executeDay04Task(int task)
 {
   BingoGame game;
 
-  std::vector<std::string> data = readArrayString("./src/day04/day04.sample");
+  std::vector<std::string> data = readArrayString("./src/day04/day04.input");
   if (task == 1) {
     game.parseInput(data);
+    std::cout << "Winner board id: " << game.play() << std::endl;
   }
 
   return 0;
