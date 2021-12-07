@@ -1,5 +1,5 @@
 build:
-	@g++ -std=c++17 -o advent2021 src/main.cpp
+	@g++-10 -std=c++20 -o advent2021 src/main.cpp
 
 day01-1:
 	@make build --no-print-directory
@@ -32,3 +32,11 @@ day04-1:
 day04-2:
 	@make build --no-print-directory
 	@./advent2021 4 2
+
+day05-1:
+	@make build --no-print-directory
+	@./advent2021 5 1
+
+day05-2:
+	@make build --no-print-directory
+	@./advent2021 5 2
