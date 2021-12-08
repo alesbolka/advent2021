@@ -24,7 +24,9 @@ std::vector<std::array<int, 2>> Fissure::getLine(bool simple)
     {
       res.push_back(std::array<int, 2>{this->coords[0], min});
     }
-  } else if (this->coords[1] == this->coords[3]) {
+  }
+  else if (this->coords[1] == this->coords[3])
+  {
     int min = std::min(this->coords[0], this->coords[2]);
     int max = std::max(this->coords[0], this->coords[2]);
 
@@ -32,7 +34,9 @@ std::vector<std::array<int, 2>> Fissure::getLine(bool simple)
     {
       res.push_back(std::array<int, 2>{min, this->coords[1]});
     }
-  } else if (!simple) {
+  }
+  else if (!simple)
+  {
     int yy = this->coords[0];
     int xx = this->coords[1];
     int dy = (this->coords[0] - this->coords[2]) > 0 ? -1 : 1;

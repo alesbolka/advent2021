@@ -15,7 +15,7 @@ void FloorMap::parseLine(string line, bool simple)
   {
     fiss.parseCoordSequential(ii);
     char next = stream.peek();
-    while(next == ',' || next == ' ' || next == '-' || next == '>')
+    while (next == ',' || next == ' ' || next == '-' || next == '>')
     {
       stream.ignore();
 
@@ -25,7 +25,7 @@ void FloorMap::parseLine(string line, bool simple)
 
   this->fissures.push_back(fiss);
 
-  for (std::array<int, 2> spot: fiss.getLine(simple))
+  for (std::array<int, 2> spot : fiss.getLine(simple))
   {
     if (!this->floor.contains(spot[0]))
     {
@@ -44,8 +44,9 @@ void FloorMap::parseLine(string line, bool simple)
 int FloorMap::countIntersects()
 {
   int res = 0;
-  for (std::pair<const int, std::map<int, int>> row : this->floor) {
-    for (std::pair<const int, const int> count: row.second)
+  for (std::pair<const int, std::map<int, int>> row : this->floor)
+  {
+    for (std::pair<const int, const int> count : row.second)
     {
       if (count.second >= 2)
       {

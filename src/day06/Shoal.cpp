@@ -16,7 +16,6 @@ void Shoal::parseInput(std::string line)
     if (ii <= 8)
     {
       ++this->initial[ii];
-
     }
     else
     {
@@ -24,7 +23,7 @@ void Shoal::parseInput(std::string line)
     }
 
     char next = stream.peek();
-    while(next == ',')
+    while (next == ',')
     {
       stream.ignore();
       next = stream.peek();
@@ -47,13 +46,12 @@ unsigned long long int Shoal::observe(int days)
     newFish = this->fish[0];
     for (int ii = 1; ii < 9; ++ii)
     {
-      this->fish[ii-1] = this->fish[ii];
+      this->fish[ii - 1] = this->fish[ii];
     }
     this->fish[6] += newFish;
     this->fish[8] = newFish;
     sum += newFish;
   }
-
 
   return sum;
 }

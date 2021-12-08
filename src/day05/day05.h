@@ -14,6 +14,7 @@ namespace day05
   public:
     void parseCoordSequential(int num);
     std::vector<std::array<int, 2>> getLine(bool simple);
+
   protected:
     int coords[4];
     int step = 0;
@@ -24,6 +25,7 @@ namespace day05
   public:
     void parseLine(std::string line, bool simple = true);
     int countIntersects();
+
   protected:
     void addCoord(int y, int x);
     std::vector<Fissure> fissures;

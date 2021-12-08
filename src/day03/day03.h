@@ -4,27 +4,28 @@
 #include <vector>
 #include <bitset>
 
+using std::bitset;
 using std::string;
 using std::vector;
-using std::bitset;
 
 namespace day03
 {
   class DiagnosticsReport
   {
-    public:
-      int getGamma();
-      int getEpsilon();
-      int findByCriteria(bool mostCommon);
+  public:
+    int getGamma();
+    int getEpsilon();
+    int findByCriteria(bool mostCommon);
 
-      void parseReportLine(string line);
-      void parseReportLineV2(string line);
-    protected:
-      vector<int> bitSum;
-      vector<bitset<12>> numberVector;
-      int linesParsed = 0;
-      int rowBitLength = 0;
-      int firstSum = 0;
+    void parseReportLine(string line);
+    void parseReportLineV2(string line);
+
+  protected:
+    vector<int> bitSum;
+    vector<bitset<12>> numberVector;
+    int linesParsed = 0;
+    int rowBitLength = 0;
+    int firstSum = 0;
   };
 }
 
