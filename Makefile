@@ -40,3 +40,11 @@ day05-1:
 day05-2:
 	@make build --no-print-directory
 	@./advent2021 5 2
+
+day06-1:
+	@make build --no-print-directory
+	@./advent2021 6 1
+
+day06-2:
+	@make build --no-print-directory
+	@./advent2021 6 2
