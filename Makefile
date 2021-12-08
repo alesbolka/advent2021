@@ -56,3 +56,11 @@ day07-1:
 day07-2:
 	@make build --no-print-directory
 	@./advent2021 7 2
+
+day08-1:
+	@make build --no-print-directory
+	@./advent2021 8 1
+
+day08-2:
+	@make build --no-print-directory
+	@./advent2021 8 2

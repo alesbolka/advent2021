@@ -3,7 +3,6 @@
 
 #include <limits>
 #include <string>
-#include <array>
 #include <map>
 
 namespace day07
