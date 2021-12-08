@@ -15,11 +15,11 @@ void BingoBoard::parseLine(string line)
     {
       throw std::invalid_argument("Found a number that repeats for a board: " + std::to_string(ii));
     }
-    this->numbers[ii]= std::array<int, 2>{this->rows, ++rowSize};
+    this->numbers[ii] = std::array<int, 2>{this->rows, ++rowSize};
     this->totalSum += ii;
 
     // Skip empty characters, there might be more than 1
-    while(stream.peek() == ' ')
+    while (stream.peek() == ' ')
     {
       stream.ignore();
     }
@@ -69,7 +69,7 @@ void BingoBoard::reset()
   this->rowHits = vector<int>(this->rows);
   this->colHits = vector<int>(this->cols);
   this->gameNumbers = std::map<int, bool>{};
-  for (auto const &it: this->numbers)
+  for (auto const &it : this->numbers)
   {
     this->gameNumbers[it.first] = true;
   }

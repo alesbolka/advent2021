@@ -14,7 +14,8 @@ int executeDay02Task(int task)
     sub.command(line);
   };
 
-  if (task == 2) {
+  if (task == 2)
+  {
     sub.setMode(day02::InstructionMode::Day02Task2);
   }
 

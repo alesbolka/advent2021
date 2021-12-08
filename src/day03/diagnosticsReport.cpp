@@ -110,5 +110,5 @@ int DiagnosticsReport::findByCriteria(bool mostCommon)
     throw std::length_error("Expected 1 result");
   }
 
-  return (int) (current[0].to_ulong());
+  return (int)(current[0].to_ulong());
 }

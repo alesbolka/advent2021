@@ -91,7 +91,8 @@ int BingoGame::play(bool findLast)
       }
 
       int res = this->boards[ii].draw(num);
-      if (res > 0) {
+      if (res > 0)
+      {
         winnerCount++;
 
         if (!findLast || this->boards.size() == winnerCount)
