@@ -13,7 +13,7 @@ int day07::executeTask(int task)
   CrabMatrix crabbies;
   crabbies.parseInput(input);
 
-  std::cout << "Minimum fuel used for alignment: " << crabbies.findMinAlignmentFuel() << std::endl;
+  std::cout << "Minimum fuel used for alignment: " << crabbies.findMinAlignmentFuel(task) << std::endl;
 
   return 0;
 }

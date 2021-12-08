@@ -14,7 +14,7 @@ namespace day07
   {
   public:
     void parseInput(std::string line);
-    int findMinAlignmentFuel();
+    int findMinAlignmentFuel(int mode);
 
   protected:
     std::map<int, int> positions;

@@ -4,6 +4,23 @@
 
 using namespace day07;
 
+int v1Fuel(int x1, int x2)
+{
+  return std::abs(x1 - x2);
+}
+
+int v2Fuel(int x1, int x2)
+{
+  if (x1 == x2)
+  {
+    // microoptimisation speedup
+    return 0;
+  }
+
+  int diff = std::abs(x1 - x2);
+  return (0.5 * diff * (1 + diff));
+}
+
 void CrabMatrix::parseInput(std::string line)
 {
   std::stringstream stream(line);
@@ -27,17 +44,18 @@ void CrabMatrix::parseInput(std::string line)
   }
 }
 
-int CrabMatrix::findMinAlignmentFuel()
+int CrabMatrix::findMinAlignmentFuel(int mode)
 {
   int minFuel = std::numeric_limits<int>::max();
 
   int fuelUse;
-  for (int target = 0; target <= this->max; ++target)
+  for (int target = this->min; target <= this->max; ++target)
   {
     fuelUse = 0;
     for (auto pos = this->positions.begin(); pos != this->positions.end(); ++pos)
     {
-      fuelUse += std::abs(pos->first - target) * pos->second;
+
+      fuelUse += (mode > 1 ? v2Fuel(target, pos->first) : v1Fuel(target, pos->first)) * pos->second;
 
       if (fuelUse > minFuel)
       {
