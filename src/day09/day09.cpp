@@ -15,7 +15,7 @@ int day09::executeTask(int task)
 
   if (task == 1)
   {
-    std::cout << "There endpoints on this map have a risk leve of: " << mp.lowPointSum() << std::endl;
+    std::cout << "The endpoints on this map have a risk level of: " << mp.lowPointSum() << std::endl;
     return 0;
   }
 
