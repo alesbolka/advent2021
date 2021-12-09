@@ -1,8 +1,10 @@
 #include <string>
 #include <vector>
+#include <map>
 #include "./day09.h"
 
 using namespace day09;
+using std::map;
 using std::string;
 using std::vector;
 
@@ -63,7 +65,7 @@ vector<Coords> HeightMap::findLowPoints()
   return res;
 }
 
-std::vector<Coords> HeightMap::getNeighbours(Coords pos)
+vector<Coords> HeightMap::getNeighbours(Coords pos)
 {
   vector<Coords> res;
   auto end = this->floor.end();
@@ -92,4 +94,56 @@ std::vector<Coords> HeightMap::getNeighbours(Coords pos)
   }
 
   return res;
+}
+
+int HeightMap::basinSizeMulti()
+{
+  int basinSizes[3] = {0, 0, 0};
+  for (Coords xy : this->findLowPoints())
+  {
+    map<Coords, bool> processed{};
+    vector<Coords> toProcess{xy};
+
+    while (toProcess.size() > 0)
+    {
+      Coords current = (*(toProcess.end() - 1));
+      toProcess.pop_back();
+
+      if (processed.contains(current))
+      {
+        continue;
+      }
+      processed[current] = true;
+
+      // Every neighbour must have a value that is higher than current, but not 9
+      for (Coords neighbour : this->getNeighbours(current))
+      {
+        if (
+            !processed.contains(neighbour) &&
+            this->floor[current] < this->floor[neighbour] &&
+            this->floor[neighbour] < 9)
+        {
+          toProcess.push_back(neighbour);
+        }
+      }
+    }
+
+    if (processed.size() >= basinSizes[0])
+    {
+      basinSizes[2] = basinSizes[1];
+      basinSizes[1] = basinSizes[0];
+      basinSizes[0] = processed.size();
+    }
+    else if (processed.size() >= basinSizes[1])
+    {
+      basinSizes[2] = basinSizes[1];
+      basinSizes[1] = processed.size();
+    }
+    else if (processed.size() >= basinSizes[2])
+    {
+      basinSizes[2] = processed.size();
+    }
+  }
+
+  return basinSizes[2] * basinSizes[1] * basinSizes[0];
 }

@@ -32,7 +32,7 @@ namespace day09
   public:
     HeightMap(std::vector<std::string> input);
     int lowPointSum();
-    int basinSizeSum();
+    int basinSizeMulti();
     std::vector<Coords> getNeighbours(Coords pos);
 
   protected:

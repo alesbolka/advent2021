@@ -19,6 +19,6 @@ int day09::executeTask(int task)
     return 0;
   }
 
-
+  std::cout << "The 3 largest basins multiply to: " << mp.basinSizeMulti() << std::endl;
   return 0;
 }
