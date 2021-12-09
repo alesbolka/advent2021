@@ -32,7 +32,6 @@ HeightMap::HeightMap(vector<string> input)
 int HeightMap::lowPointSum()
 {
   int res = 0;
-  std::cout << std::endl;
   for (auto xy : this->findLowPoints())
   {
     res += this->floor[xy] + 1;
