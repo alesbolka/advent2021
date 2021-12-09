@@ -64,3 +64,11 @@ day08-1:
 day08-2:
 	@make build --no-print-directory
 	@./advent2021 8 2
+
+day09-1:
+	@make build --no-print-directory
+	@./advent2021 9 1
+
+day09-2:
+	@make build --no-print-directory
+	@./advent2021 9 2
