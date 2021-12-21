@@ -29,5 +29,20 @@ int day10::executeTask(int task)
     return 0;
   }
 
-  return 1;
+  std::vector<unsigned long long> scores;
+
+  for (std::string txt : input)
+  {
+    Line line(txt);
+    if (line.isError())
+    {
+      continue;
+    }
+
+    scores.push_back(line.completeLine());
+  }
+  std::sort(scores.begin(), scores.end());
+  std::cout << "Median value: " << scores[scores.size() / 2] << std::endl;
+
+  return 0;
 }

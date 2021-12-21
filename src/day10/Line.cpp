@@ -7,10 +7,9 @@ using namespace day10;
 using std::string;
 using std::vector;
 
-day10::Line::Line(string line)
+Line::Line(string line)
 {
   int open = 0;
-  vector<char> remaining;
 
   for (char ch : line)
   {
@@ -20,7 +19,7 @@ day10::Line::Line(string line)
     case '(':
     case '[':
     case '<':
-      remaining.push_back(ch);
+      this->remaining.push_back(ch);
       break;
     case '}':
     case ')':
@@ -28,9 +27,9 @@ day10::Line::Line(string line)
     case '>':
     {
       char prev = 'x';
-      if (remaining.size())
+      if (this->remaining.size())
       {
-        prev = remaining.back();
+        prev = this->remaining.back();
       }
 
       if (ch == '}' && prev != '{')
@@ -54,7 +53,7 @@ day10::Line::Line(string line)
         return;
       }
 
-      remaining.pop_back();
+      this->remaining.pop_back();
     }
     break;
     default:
@@ -62,6 +61,37 @@ day10::Line::Line(string line)
       break;
     }
   }
+}
 
-  this->complete = remaining.size() == 0;
+unsigned long long Line::completeLine()
+{
+  unsigned long long score = 0;
+  while (this->remaining.size())
+  {
+    score *= 5;
+
+    switch (this->remaining.back())
+    {
+    case '(':
+      score += 1;
+      break;
+    case '[':
+      score += 2;
+      break;
+    case '{':
+      score += 3;
+      break;
+    case '<':
+      score += 4;
+      break;
+    default:
+      throw std::invalid_argument(
+          "Unexpected remaining character: " + string(1, this->remaining.back()));
+      break;
+    }
+
+    this->remaining.pop_back();
+  }
+
+  return score;
 }

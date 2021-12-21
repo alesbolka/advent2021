@@ -2,6 +2,7 @@
 #define DAY_10
 
 #include <string>
+#include <vector>
 
 namespace day10
 {
@@ -10,12 +11,12 @@ namespace day10
   {
     public:
       Line(std::string line);
-      bool isComplete() { return this->complete; };
       bool isError() { return this->errScore != 0; };
       int getErrorScore() { return this->errScore; }
+      unsigned long long completeLine();
     protected:
-      bool complete = false;
       int errScore = 0;
+      vector<char> remaining;
   };
 }
 
