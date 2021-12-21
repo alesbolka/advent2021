@@ -6,6 +6,8 @@ prepare:
 	@touch "src/day${day}/input.txt"
 	@touch "src/day${day}/sample.txt"
 	@touch "src/day${day}/day${day}.cpp"
+	@cp src/shared/sample.cpp "src/day${day}/day${day}.cpp"
 	@cp src/shared/sample.h "src/day${day}/day${day}.h"
 	@sed -i 's/XX/${day}/' "src/day${day}/day${day}.h"
+	@sed -i 's/XX/${day}/' "src/day${day}/day${day}.cpp"
 	@echo "Prepared day ${day} files"
