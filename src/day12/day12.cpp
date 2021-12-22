@@ -25,5 +25,8 @@ int day12::executeTask(int task)
     return 0;
   }
 
-  return 1;
+  std::set<Path> paths = map.getPathsV2("start", "end");
+  std::cout << "Found " << paths.size() << " paths" << std::endl;
+
+  return 0;
 }

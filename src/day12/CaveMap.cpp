@@ -1,3 +1,4 @@
+#include <map>
 #include <string>
 #include <vector>
 #include "./day12.h"
@@ -76,4 +77,26 @@ set<vector<MapNode*>> CaveMap::getPaths(string start, string end)
   MapNode* startNode = this->nodes[start];
 
   return startNode->consider(vector<MapNode*>{startNode}, endNode);
+}
+
+set<Path> CaveMap::getPathsV2(string start, string end)
+{
+  if (!this->nodes.contains(start))
+  {
+    throw std::invalid_argument("Start node is not in set");
+  }
+  if (!this->nodes.contains(end))
+  {
+    throw std::invalid_argument("End node is not in set");
+  }
+
+  MapNode* endNode = this->nodes[end];
+  MapNode* startNode = this->nodes[start];
+  Path initial{
+    vector<MapNode*>{startNode},
+    std::map<MapNode*, int>{},
+    false,
+  };
+
+  return startNode->considerV2(initial, startNode, endNode);
 }
