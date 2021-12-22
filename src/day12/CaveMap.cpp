@@ -19,7 +19,7 @@ CaveMap::CaveMap(vector<string> input)
     bool isfirstSmall = true;
     bool isSecondSmall = true;
 
-    for (char ch: line)
+    for (char ch : line)
     {
       if (ch == '-')
       {
@@ -62,7 +62,7 @@ CaveMap::CaveMap(vector<string> input)
   }
 }
 
-set<vector<MapNode*>> CaveMap::getPaths(string start, string end)
+set<vector<MapNode *>> CaveMap::getPaths(string start, string end)
 {
   if (!this->nodes.contains(start))
   {
@@ -73,10 +73,10 @@ set<vector<MapNode*>> CaveMap::getPaths(string start, string end)
     throw std::invalid_argument("End node is not in set");
   }
 
-  MapNode* endNode = this->nodes[end];
-  MapNode* startNode = this->nodes[start];
+  MapNode *endNode = this->nodes[end];
+  MapNode *startNode = this->nodes[start];
 
-  return startNode->consider(vector<MapNode*>{startNode}, endNode);
+  return startNode->consider(vector<MapNode *>{startNode}, endNode);
 }
 
 set<Path> CaveMap::getPathsV2(string start, string end)
@@ -90,12 +90,12 @@ set<Path> CaveMap::getPathsV2(string start, string end)
     throw std::invalid_argument("End node is not in set");
   }
 
-  MapNode* endNode = this->nodes[end];
-  MapNode* startNode = this->nodes[start];
+  MapNode *endNode = this->nodes[end];
+  MapNode *startNode = this->nodes[start];
   Path initial{
-    vector<MapNode*>{startNode},
-    std::map<MapNode*, int>{},
-    false,
+      vector<MapNode *>{startNode},
+      std::map<MapNode *, int>{},
+      false,
   };
 
   return startNode->considerV2(initial, startNode, endNode);
