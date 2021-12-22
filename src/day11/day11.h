@@ -13,6 +13,7 @@ namespace day11
     public:
       Octogrid(std::vector<std::string> input);
       int simulate(int steps);
+      int synchronise();
       void print();
     protected:
       int grid[10][10];

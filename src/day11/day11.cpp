@@ -19,5 +19,8 @@ int day11::executeTask(int task)
     return 0;
   }
 
-  return 1;
+  int res = grid.synchronise();
+  std::cout << "The octopi synchronise on step " << res << std::endl;
+
+  return 0;
 }

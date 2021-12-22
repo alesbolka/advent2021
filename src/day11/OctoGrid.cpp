@@ -111,3 +111,16 @@ void Octogrid::print()
     std::cout << std::endl;
   }
 }
+
+int Octogrid::synchronise()
+{
+  int res = 0;
+  int count = 0;
+  while (res != 100)
+  {
+    ++count;
+    res = this->step();
+  }
+
+  return count;
+}
