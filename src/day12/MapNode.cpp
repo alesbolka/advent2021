@@ -5,19 +5,19 @@
 #include "./day12.h"
 
 using namespace day12;
+using std::set;
 using std::string;
 using std::vector;
-using std::set;
 
-void MapNode::connect(MapNode* other)
+void MapNode::connect(MapNode *other)
 {
   this->connections.push_back(other);
 }
 
-void print_path(vector<MapNode*> path)
+void print_path(vector<MapNode *> path)
 {
   char sep = ' ';
-  for (MapNode* node: path)
+  for (MapNode *node : path)
   {
     std::cout << sep << (*node).getName();
     sep = ',';
@@ -28,7 +28,7 @@ void print_path(vector<MapNode*> path)
 void print_path(Path path)
 {
   char sep = ' ';
-  for (MapNode* node: path.nodes)
+  for (MapNode *node : path.nodes)
   {
     std::cout << sep << (*node).getName();
     sep = ',';
@@ -36,16 +36,16 @@ void print_path(Path path)
   std::cout << std::endl;
 }
 
-set<vector<MapNode*>> MapNode::consider(vector<MapNode*> origin, MapNode* end)
+set<vector<MapNode *>> MapNode::consider(vector<MapNode *> origin, MapNode *end)
 {
-  set<vector<MapNode*>> res;
-  for (MapNode* other: this->connections)
+  set<vector<MapNode *>> res;
+  for (MapNode *other : this->connections)
   {
     if ((*other).isSmall() && std::count(origin.begin(), origin.end(), other) > 0)
     {
       continue;
     }
-    vector<MapNode*> newPath = origin;
+    vector<MapNode *> newPath = origin;
     newPath.push_back(other);
 
     if (other == end)
@@ -55,9 +55,9 @@ set<vector<MapNode*>> MapNode::consider(vector<MapNode*> origin, MapNode* end)
       continue;
     }
 
-    set<vector<MapNode*>> innerRes = (*other).consider(newPath, end);
+    set<vector<MapNode *>> innerRes = (*other).consider(newPath, end);
 
-    for (vector<MapNode*> winner: innerRes)
+    for (vector<MapNode *> winner : innerRes)
     {
       res.insert(winner);
     }
@@ -66,10 +66,10 @@ set<vector<MapNode*>> MapNode::consider(vector<MapNode*> origin, MapNode* end)
   return res;
 }
 
-set<Path> MapNode::considerV2(Path origin, MapNode* start, MapNode* end)
+set<Path> MapNode::considerV2(Path origin, MapNode *start, MapNode *end)
 {
   set<Path> res;
-  for (MapNode* other: this->connections)
+  for (MapNode *other : this->connections)
   {
     Path newOrigin = origin;
     if (other == start)
@@ -106,7 +106,7 @@ set<Path> MapNode::considerV2(Path origin, MapNode* start, MapNode* end)
 
     set<Path> innerRes = (*other).considerV2(newOrigin, start, end);
 
-    for (Path winner: innerRes)
+    for (Path winner : innerRes)
     {
       res.insert(winner);
     }

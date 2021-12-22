@@ -20,7 +20,7 @@ int day12::executeTask(int task)
 
   if (task == 1)
   {
-    std::set<std::vector<MapNode*>> paths = map.getPaths();
+    std::set<std::vector<MapNode *>> paths = map.getPaths();
     std::cout << "Found " << paths.size() << " paths" << std::endl;
     return 0;
   }
