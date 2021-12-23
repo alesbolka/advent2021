@@ -11,6 +11,7 @@
 #include "./day10/day10.cpp"
 #include "./day11/day11.cpp"
 #include "./day12/day12.cpp"
+#include "./day13/day13.cpp"
 #include "./shared/fileReader.cpp"
 #include "./shared/stringHelpers.cpp"
 
@@ -73,6 +74,8 @@ int main(int argc, char **argv)
     return day11::executeTask(task);
   case 12:
     return day12::executeTask(task);
+  case 13:
+    return day13::executeTask(task);
   default:
     cout << "Invalid task " << task << " specified for day " << day << endl;
     return 1;
