@@ -1,6 +1,6 @@
 #include <iostream>
+#include <stdexcept>
 #include <sstream>
-
 #include "./day04.h"
 #include "./BingoBoard.cpp"
 

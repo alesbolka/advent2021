@@ -1,7 +1,7 @@
-#include "./day03.h"
-
-#include <iostream>
 #include <bitset>
+#include <iostream>
+#include <stdexcept>
+#include "./day03.h"
 
 using std::bitset;
 using std::string;

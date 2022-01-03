@@ -1,4 +1,5 @@
 #include <sstream>
+#include <stdexcept>
 #include "./day06.h"
 
 using namespace day06;
